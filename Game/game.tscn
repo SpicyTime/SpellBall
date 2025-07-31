@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkj7nv8cfnlua"]
+[gd_scene load_steps=3 format=3 uid="uid://dkj7nv8cfnlua"]
 
 [ext_resource type="PackedScene" uid="uid://dnlsc08yvs6g" path="res://Characters/Player/player.tscn" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://bt111kj6o86te" path="res://Dodgeball/dodge_ball.tscn" id="2_1r4le"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,5 @@
 FRICTION = 1100.0
 ACCEL = 1600.0
 MAX_SPEED = 500.0
+
+[node name="Dodgeball" parent="." instance=ExtResource("2_1r4le")]

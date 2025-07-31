@@ -1,16 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnlsc08yvs6g"]
+[gd_scene load_steps=5 format=3 uid="uid://dnlsc08yvs6g"]
 
 [ext_resource type="Script" uid="uid://cd63qu8fdtmg6" path="res://Characters/Player/player.gd" id="1_j341n"]
-[ext_resource type="Texture2D" uid="uid://cool8l1qewubf" path="res://icon.svg" id="2_cue0d"]
+[ext_resource type="Texture2D" uid="uid://cr2hc0p86runm" path="res://Characters/Player/Character.png" id="2_j341n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygrrk"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j341n"]
+radius = 15.0
+height = 58.0
+
+[node name="Player" type="CharacterBody2D" groups=["Characters"]]
+z_index = 2
 motion_mode = 1
 script = ExtResource("1_j341n")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j341n")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 2
 shape = SubResource("CapsuleShape2D_ygrrk")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cue0d")
+[node name="BallPickupRadius" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallPickupRadius"]
+position = Vector2(1, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j341n")
+
+[connection signal="body_entered" from="BallPickupRadius" to="." method="_on_ball_pickup_radius_body_entered"]
+[connection signal="body_exited" from="BallPickupRadius" to="." method="_on_ball_pickup_radius_body_exited"]

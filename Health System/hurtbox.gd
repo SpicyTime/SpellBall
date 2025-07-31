@@ -4,6 +4,6 @@ class_name HurtBox
 signal received_damage(amount: int)
 func _on_area_entered(area: Area2D) -> void:
 	if area is HitBox:
-		var hitbox: HitBox = area as HitBox
+		var hitbox: HitBox = area 
 		health_node.set_health(health_node.health - hitbox.damage)
 		received_damage.emit(hitbox.damage)
