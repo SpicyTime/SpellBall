@@ -1,0 +1,23 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Ignore Godot import and UID files
+.import/
+*.import
+*.godot-import
+*.tscn.import
+*.uid
+
+# Ignore temporary/system files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignore Godot export templates (if you build exports)
+export_presets.cfg
+
+# Ignore build artifacts (if any)
+build/
+bin/

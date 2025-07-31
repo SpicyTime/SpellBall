@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkj7nv8cfnlua"]
+
+[ext_resource type="PackedScene" uid="uid://dnlsc08yvs6g" path="res://Characters/Player/player.tscn" id="1_bk3v5"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_bk3v5")]
+FRICTION = 1050.0
+ACCEL = 1600.0
+MAX_SPEED = 500.0
