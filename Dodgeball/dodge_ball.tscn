@@ -9,14 +9,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6xo4"]
 
 [node name="Dodgeball" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_qmm57")
+FRICTION = 225.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pb0kx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="MainSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_erftc")
 
 [node name="HitBox" type="Area2D" parent="."]

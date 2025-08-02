@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkj7nv8cfnlua"]
+[gd_scene load_steps=5 format=3 uid="uid://dkj7nv8cfnlua"]
 
+[ext_resource type="Script" uid="uid://cp2v3pbnbguex" path="res://Game/game.gd" id="1_7raqb"]
 [ext_resource type="PackedScene" uid="uid://dnlsc08yvs6g" path="res://Characters/Player/player.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://bt111kj6o86te" path="res://Dodgeball/dodge_ball.tscn" id="2_1r4le"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1r4le"]
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_7raqb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -13,3 +17,37 @@ ACCEL = 1600.0
 MAX_SPEED = 500.0
 
 [node name="Dodgeball" parent="." instance=ExtResource("2_1r4le")]
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(1, 182)
+shape = SubResource("WorldBoundaryShape2D_1r4le")
+
+[node name="Top" type="StaticBody2D" parent="."]
+position = Vector2(-1, -179)
+rotation = 3.14159
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2(-7.15256e-07, -1)
+shape = SubResource("WorldBoundaryShape2D_1r4le")
+
+[node name="Left" type="StaticBody2D" parent="."]
+position = Vector2(-318, 1)
+rotation = 1.5708
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_1r4le")
+
+[node name="Right" type="StaticBody2D" parent="."]
+position = Vector2(318, 1)
+rotation = 4.71239
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_1r4le")

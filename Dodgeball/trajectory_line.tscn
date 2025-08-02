@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crbnhhivmsu7j"]
+
+[ext_resource type="Script" uid="uid://dxv1ylcpryk6x" path="res://Dodgeball/trajectory_line.gd" id="1_0nlls"]
+
+[node name="TrajectoryLine" type="Line2D"]
+script = ExtResource("1_0nlls")
